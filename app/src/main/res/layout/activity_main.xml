@@ -15,8 +15,9 @@
 
         <TextView
             android:id="@+id/currentShape"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Shape" />
 
         <LinearLayout
@@ -30,12 +31,21 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0"
                 android:gravity="right"
-                android:text="Red" />
+                android:text="Red:" />
+
+            <TextView
+                android:id="@+id/redVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingLeft="5dp"
+                android:text="0" />
 
             <SeekBar
                 android:id="@+id/seekBarRed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:max="255"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -50,12 +60,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:gravity="right"
-                android:text="Green" />
+                android:text="Green:" />
+
+            <TextView
+                android:id="@+id/greenVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingLeft="5dp"
+                android:text="0" />
 
             <SeekBar
                 android:id="@+id/seekBarGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:max="255"
                 android:layout_weight="1" />
         </LinearLayout>
 
@@ -70,12 +89,21 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:gravity="right"
-                android:text="Blue" />
+                android:text="Blue:" />
+
+            <TextView
+                android:id="@+id/blueVal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:paddingLeft="5dp"
+                android:text="0" />
 
             <SeekBar
                 android:id="@+id/seekBarBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:max="255"
                 android:layout_weight="1" />
         </LinearLayout>
 
