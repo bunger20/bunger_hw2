@@ -1,14 +1,23 @@
 package com.example.bunger_hw2;
 
+import android.content.Context;
+import android.view.SurfaceView;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.view.SurfaceView;
-import android.content.Context;
+import android.util.AttributeSet;
 
 public class Shapes extends SurfaceView {
-
     public Shapes(Context context) {
         super(context);
+    }
+
+    public Shapes(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public Shapes(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         init();
     }
 
@@ -30,7 +39,7 @@ public class Shapes extends SurfaceView {
         greenPaint.setColor(0xFF005900);
         canvas.drawRect(500.0f, 500.0f, 1000.0f, 1000.0f, greenPaint);
 
-        //drawRoundRect(50, 100, 150, 200, 75, 25, greenPaint);
+
 
     }
 }
