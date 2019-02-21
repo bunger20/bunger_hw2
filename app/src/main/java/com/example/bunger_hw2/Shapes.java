@@ -41,23 +41,23 @@ public class Shapes extends SurfaceView {
 
         picture = new ArrayList<CustomElement>();
 
-        CustomCircle orangeCircle = new CustomCircle("orange circle", 0xFFFFA500, 50, 50, 50);
-        picture.add(orangeCircle);
+        CustomRect background = new CustomRect("background", 0xFF0000FF, 0, 0, 2000, 2000);
+        picture.add(background);
 
-        CustomCircle redCircle = new CustomCircle("red circle", 0xFFFF0000, 500, 500, 150);
-        picture.add(redCircle);
+        CustomCircle face = new CustomCircle("face", 0xFFFFA500, 625, 450, 425);
+        picture.add(face);
 
-        CustomCircle tealCircle = new CustomCircle("teal circle", 0xFF008080, 50, 500, 90);
-        picture.add(tealCircle);
+        CustomCircle rightEye = new CustomCircle("right eye", 0xFF008080, 775, 325, 50);
+        picture.add(rightEye);
 
-        CustomRect greenRect = new CustomRect("green rect", 0xFF00FF00, 200, 200, 250, 250);
-        picture.add(greenRect);
+        CustomCircle leftEye = new CustomCircle("left eye", 0xFF008080, 500, 325, 50);
+        picture.add(leftEye);
 
-        CustomRect blueRect = new CustomRect("blue rect", 0xFF0000FF, 300, 175, 350, 175);
-        picture.add(blueRect);
+        CustomCircle mouth = new CustomCircle("mouth", 0xFFFF0000, 625, 650, 100);
+        picture.add(mouth);
 
-        CustomRect purpleRect = new CustomRect("purple rect", 0xFFFF00FF, 400, 375, 450, 425);
-        picture.add(purpleRect);
+        CustomRect nose = new CustomRect("nose", 0xFFFF00FF, 630, 375, 675, 450);
+        picture.add(nose);
     }
 
     @Override
