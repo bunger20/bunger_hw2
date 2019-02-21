@@ -94,6 +94,11 @@ public class Shapes extends SurfaceView {
     }
 
     /**
+     *External Citation
+     *Date: 20 Feb 2019
+     *Problem: Didn't know how to deal with finding the location of the elements.
+     *Resource Patrick Bellosil
+     *Solution: He explained the algorithm to me and assisted with implementation.
      *
      * @param: x  The x coordinate to use to check if there's an official shape there.
      * @param: y  The y coordinate to use to check if there's an official shape there.
