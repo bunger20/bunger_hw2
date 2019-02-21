@@ -9,7 +9,15 @@ import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-
+/**
+ * <!-- class MainActivity -->
+ *
+ * This class defines the app itself.
+ *
+ * @author Sarah Bunger
+ * @version 20 Feb 2019
+ *
+ */
 public class MainActivity extends AppCompatActivity {
 
     Controller controller;
@@ -22,13 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
         //initialize the text views for the RGB values
         TextView redVal = (TextView)findViewById(R.id.redVal);
-        //redVal.setText("0");
 
         TextView greenVal = (TextView)findViewById(R.id.greenVal);
-        //greenVal.setText("0");
 
         TextView blueVal = (TextView)findViewById(R.id.blueVal);
-        //blueVal.setText("0");
 
         TextView selected = findViewById(R.id.currentShape);
 

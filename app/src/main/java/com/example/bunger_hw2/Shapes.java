@@ -5,36 +5,54 @@
 package com.example.bunger_hw2;
 
 import android.content.Context;
-import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.graphics.Canvas;
-import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.graphics.Path;
-import android.view.View;
 
 import java.util.ArrayList;
 
+/**
+ * <!-- class Shapes -->
+ *
+ * This class defines the series of CustomElements that make up a drawing.
+ *
+ * @author Sarah Bunger
+ * @version 20 Feb 2019
+ *
+ */
 public class Shapes extends SurfaceView {
 
     ArrayList<CustomElement> picture;
 
+    /**
+     * Constructor for Shapes objects.
+     */
     public Shapes(Context context) {
 
         super(context);
         init();
     }
 
+    /**
+     * Constructor for Shapes objects.
+     */
     public Shapes(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
+    /**
+     * Constructor for Shapes objects.
+     */
     public Shapes(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
+
+    /**
+     * A helper method for use in the constructors that creates the six shapes as well as the array the will be in.
+     */
     private void init() {
 
         setWillNotDraw(false);
@@ -60,6 +78,10 @@ public class Shapes extends SurfaceView {
         picture.add(nose);
     }
 
+    /**
+     * Overrides SurfaceView's onDraw method, drawing each element in the array of CustomElement objects.
+     * @param: Canvas  The Canvas object to draw on.
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(0xFFFFFFFF);
@@ -71,6 +93,13 @@ public class Shapes extends SurfaceView {
 
     }
 
+    /**
+     *
+     * @param: x  The x coordinate to use to check if there's an official shape there.
+     * @param: y  The y coordinate to use to check if there's an official shape there.
+     *
+     * @return: touched  Returns the CustomElement object that contains the point with  coordinates passed into function.
+     */
     public CustomElement findElement(int x, int y){
         ArrayList<CustomElement> checkList = new ArrayList<CustomElement>();
 
