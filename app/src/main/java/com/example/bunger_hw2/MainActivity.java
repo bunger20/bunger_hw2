@@ -1,3 +1,7 @@
+/**
+ * @author: Sarah Bunger
+ */
+
 package com.example.bunger_hw2;
 
 import android.support.v7.app.AppCompatActivity;
@@ -6,14 +10,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 
-public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener{
+public class MainActivity extends AppCompatActivity {
 
-    TextView redVal = null;
-    TextView greenVal = null;
-    TextView blueVal = null;
-    SeekBar seekBarRed = null;
-    SeekBar seekBarGreen = null;
-    SeekBar seekBarBlue= null;
+    Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,48 +21,25 @@ public class MainActivity extends AppCompatActivity implements SeekBar.OnSeekBar
 
 
         //initialize the text views for the RGB values
-        redVal = (TextView)findViewById(R.id.redVal);
-        redVal.setText("0");
+        TextView redVal = (TextView)findViewById(R.id.redVal);
+        //redVal.setText("0");
 
-        greenVal = (TextView)findViewById(R.id.greenVal);
-        greenVal.setText("0");
+        TextView greenVal = (TextView)findViewById(R.id.greenVal);
+        //greenVal.setText("0");
 
-        blueVal = (TextView)findViewById(R.id.blueVal);
-        blueVal.setText("0");
+        TextView blueVal = (TextView)findViewById(R.id.blueVal);
+        //blueVal.setText("0");
 
-        //create seek bar objects and set their listeners
-        seekBarRed = findViewById(R.id.seekBarRed);
-        seekBarRed.setOnSeekBarChangeListener(this);
+        TextView selected = findViewById(R.id.currentShape);
 
-        seekBarGreen = findViewById(R.id.seekBarGreen);
-        seekBarGreen.setOnSeekBarChangeListener(this);
+        SeekBar seekBarRed = findViewById(R.id.seekBarRed);
+        SeekBar seekBarGreen = findViewById(R.id.seekBarGreen);
+        SeekBar seekBarBlue = findViewById(R.id.seekBarBlue);
 
-        seekBarBlue = findViewById(R.id.seekBarBlue);
-        seekBarBlue.setOnSeekBarChangeListener(this);
+        Shapes display = findViewById(R.id.surfaceView);
+
+        controller = new Controller(display, seekBarRed, seekBarGreen, seekBarBlue, selected, redVal, greenVal, blueVal);
+
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        if(seekBar == seekBarRed) {
-            redVal.setText("" + progress);
-        }
-
-        if(seekBar == seekBarGreen) {
-            greenVal.setText("" + progress);
-        }
-
-        if(seekBar == seekBarBlue) {
-            blueVal.setText("" + progress);
-        }
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        //unused
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        //unused
-    }
 }

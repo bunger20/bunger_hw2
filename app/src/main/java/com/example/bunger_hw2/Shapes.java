@@ -1,15 +1,28 @@
+/**
+ * @author: Sarah Bunger
+ */
+
 package com.example.bunger_hw2;
 
 import android.content.Context;
+import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.graphics.Path;
+import android.view.View;
+
+import java.util.ArrayList;
 
 public class Shapes extends SurfaceView {
+
+    ArrayList<CustomElement> picture;
+
     public Shapes(Context context) {
+
         super(context);
+        init();
     }
 
     public Shapes(Context context, AttributeSet attrs) {
@@ -23,67 +36,58 @@ public class Shapes extends SurfaceView {
     }
 
     private void init() {
+
         setWillNotDraw(false);
-    }
 
-    /**
-     * External citation
-     * Date: 12 Feb 2019
-     * Problem: Wasn't sure how to use paths to make a different shape
-     * Resource: https://kylewbanks.com/blog/drawing-triangles-rhombuses-and-other-shapes-on-android-canvas
-     * Solution: I used the sample code from the post
-     */
-    public void triangle(Canvas canvas, Paint paint, int x, int y, int width) {
-        int halfWidth = width / 2;
+        picture = new ArrayList<CustomElement>();
 
-        Path path = new Path();
-        path.moveTo(x, y - halfWidth); // Top
-        path.lineTo(x - halfWidth, y + halfWidth); // Bottom left
-        path.lineTo(x + halfWidth, y + halfWidth); // Bottom right
-        path.lineTo(x, y - halfWidth); // Back to Top
-        path.close();
+        CustomCircle orangeCircle = new CustomCircle("orange circle", 0xFFFFA500, 50, 50, 50);
+        picture.add(orangeCircle);
 
-        canvas.drawPath(path, paint);
+        CustomCircle redCircle = new CustomCircle("red circle", 0xFFFF0000, 500, 500, 150);
+        picture.add(redCircle);
+
+        CustomCircle tealCircle = new CustomCircle("teal circle", 0xFF008080, 50, 500, 90);
+        picture.add(tealCircle);
+
+        CustomRect greenRect = new CustomRect("green rect", 0xFF00FF00, 200, 200, 250, 250);
+        picture.add(greenRect);
+
+        CustomRect blueRect = new CustomRect("blue rect", 0xFF0000FF, 300, 175, 350, 175);
+        picture.add(blueRect);
+
+        CustomRect purpleRect = new CustomRect("purple rect", 0xFFFF00FF, 400, 375, 450, 425);
+        picture.add(purpleRect);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawColor(0xFFFFFFFF);
 
-        //paint colors
-        Paint purplePaint = new Paint();
-        purplePaint.setColor(0xFF6C3483);
+        for(CustomElement i : picture){
 
-        Paint greenPaint = new Paint();
-        greenPaint.setColor(0xFF005900);
-
-        Paint orange = new Paint();
-        orange.setColor(0XFFFFA500);
-
-        Paint blue = new Paint();
-        blue.setColor(0XFF3FE0D0);
-
-        Paint red = new Paint();
-        red.setColor(0XFFFF0000);
-
-        //drawing of the six shapes
-        canvas.drawCircle(1100.0f, 100.0f, 100.0f, purplePaint);
-
-        canvas.drawRect(500.0f, 500.0f, 1000.0f, 1000.0f, greenPaint);
-
-        canvas.drawRect(400, 400, 70, 70, purplePaint);
-
-        orange.setStyle(Paint.Style.STROKE);
-        orange.setStrokeWidth(30.0f);
-        canvas.drawCircle(440, 480, 40, orange);
-
-        triangle(canvas, blue, 500, 165, 125);
-
-        triangle(canvas, red, 100, 900, 125);
-
+            i.drawMe(canvas);
+        }
 
     }
 
+    public CustomElement findElement(int x, int y){
+        ArrayList<CustomElement> checkList = new ArrayList<CustomElement>();
 
+        for(CustomElement i : picture){
+            if(i.containsPoint(x,y)){
+                checkList.add(i);
+            }
+        }
+
+        CustomElement touched = null;
+        for(CustomElement i : checkList){
+            if(i.containsPoint(x,y)){
+                touched = i;
+            }
+        }
+
+        return touched;
+    }
 
 }
